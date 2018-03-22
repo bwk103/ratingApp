@@ -1,6 +1,11 @@
 'use strict';
 var app = require('../../app');
 var request = require('supertest');
+var mongoose = require('mongoose');
+
+afterAll(() => {
+  mongoose.disconnect();
+});
 
 describe('routing tests', () => {
   describe('root path', () => {
