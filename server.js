@@ -1,7 +1,7 @@
 'use strict';
 var app = require('./app');
-var port = process.env.PORT || 3000;
+const config = require('./config');
 
-app.listen(port, () => {
-  console.log(`The server is running on port ${port}`);
+app.listen(config.app.port, () => {
+  console.log(`The server is running on port ${config.app.port}`);
 });
