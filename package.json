@@ -1,0 +1,17 @@
+{
+  "name": "ratingapp",
+  "version": "1.0.0",
+  "description": "A basic application to enable users to rate your site/feature",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Ben Kielty",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
+}
