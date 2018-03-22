@@ -1,11 +1,9 @@
-var express = require("express");
+'use strict';
+var express = require('express');
 var app = express();
-var port = process.env.PORT || 3000;
 
-app.get('/', (req, res)=> {
-  res.send('Hello World!')
-})
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
-app.listen(port, ()=> {
-  console.log(`The server is running on port ${port}`)
-})
+module.exports = app;
