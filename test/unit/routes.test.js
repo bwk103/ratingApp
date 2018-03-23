@@ -8,7 +8,7 @@ afterAll(() => {
 });
 
 describe('routing tests', () => {
-  describe('root path', () => {
+  describe('/', () => {
     test('responds with a 200 status code', () => {
       request(app).get('/').then((response) => {
         return expect(response.statusCode).toBe(200);
@@ -18,6 +18,22 @@ describe('routing tests', () => {
     test('responds with "Hello World" in the body', () => {
       request(app).get('/').then((response) => {
         return expect(response.text).toBe('Hello World!');
+      });
+    });
+  });
+
+  describe('/feedback', () => {
+    test('responds with a 200 status code', () => {
+      request(app).get('/feedback').then((response) => {
+        return expect(response.statusCode).toBe(200);
+      });
+    });
+  });
+
+  describe('/confirm', () => {
+    test('responds with a 200 status code', () => {
+      request(app).get('/confirm').then((response) => {
+        return expect(response.statusCode).toBe(200);
       });
     });
   });

@@ -1,10 +1,9 @@
 'use strict';
 var router = require('express').Router();
 var Score = require('../models/score');
+var scoreController = require('../controllers/scoreController');
 
-router.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+router.get('/', scoreController.get_home); 
 
 router.get('/feedback', (req, res) => {
   res.send('The feedback page');
