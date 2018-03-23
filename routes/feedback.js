@@ -1,9 +1,10 @@
 'use strict';
 var router = require('express').Router();
 var Score = require('../models/score');
-var scoreController = require('../controllers/scoreController');
 
-router.get('/', scoreController.get_home); 
+router.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
 router.get('/feedback', (req, res) => {
   res.send('The feedback page');
@@ -14,13 +15,12 @@ router.post('/feedback', (req, res) => {
     rating: req.body.rating,
     comment: req.body.comment,
   });
-  score.save(function(err, score){
+  score.save((err, score) => {
     if (err) {
-      console.log(err);
-      res.redirect('/');
+      console.error(err);
     } else {
-      console.log(score);
-      res.redirect('/confirm');
+      res.statusCode = 201;
+      res.send('Thanks');
     }
   });
 });
@@ -28,15 +28,9 @@ router.post('/feedback', (req, res) => {
 router.get('/confirm', (req, res) => {
   Score.find({}, function(err, scores){
     if (err) {
-      console.log(err);
+      console.error(err);
     } else {
-      var count = scores.length;
-      var avg = scores.reduce(function(sum, score){
-        var accumulator = sum += score.rating;
-        return accumulator;
-      }, 0) / count;
-      console.log(`Count is ${count}, avg is ${avg}`);
-      res.send('Thanks for your feedback');
+      res.send('Thanks for the feedback');
     }
   });
 });

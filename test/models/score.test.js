@@ -1,33 +1,24 @@
 'use strict';
 var Score = require('../../models/score');
+var score;
 
 describe('Score', () => {
-  test('is not valid if a rating is not provided', () => {
-    var score = new Score({
-      rating: null,
+  beforeEach(() => {
+    score = new Score({
+      rating: 5,
       comment: 'Random comment',
     });
-    return expect(score.validate()).rejects.not.toBe(null);
   });
-  test('is not valid if a rating is not an integer', () => {
-    var score = new Score({
-      rating: 'Something',
-      comment: 'Random comment',
-    });
+  test('is not valid if a rating is not provided', () => {
+    score.rating = null;
     return expect(score.validate()).rejects.not.toBe(null);
   });
   test('is not valid if a rating is negative', () => {
-    var score = new Score({
-      rating: -1,
-      comment: 'Something',
-    });
+    score.rating = -1;
     return expect(score.validate()).rejects.not.toBe(null);
   });
   test('is not valid if a rating is greater than 10', () => {
-    var score = new Score({
-      rating: 15,
-      comment: 'Something',
-    });
+    score.rating = 15;
     return expect(score.validate()).rejects.not.toBe(null);
   });
 });
