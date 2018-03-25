@@ -7,7 +7,7 @@
   "description": "A basic application to enable users to rate your site/feature",
   "main": "server.js",
   "scripts": {
-    "pretest": "eslint --ignore-path .gitignore .",
+    "pretest": "eslint .",
     "test": "NODE_ENV=test jest"
   },
   "author": "Ben Kielty",
