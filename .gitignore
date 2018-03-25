@@ -1,1 +1,2 @@
-/node_modules
+ratingServer/node_modules
+.DS_Store

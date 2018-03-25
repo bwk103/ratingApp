@@ -5,6 +5,9 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/feedback');
 var mongoose = require('mongoose');
 var config = require('./config');
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

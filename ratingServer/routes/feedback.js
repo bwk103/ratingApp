@@ -20,7 +20,10 @@ router.post('/feedback', (req, res) => {
       console.error(err);
     } else {
       res.statusCode = 201;
-      res.send('Thanks');
+      res.send({
+        status: 'Success',
+        message: 'Score saved successfully',
+      });
     }
   });
 });
@@ -30,7 +33,9 @@ router.get('/confirm', (req, res) => {
     if (err) {
       console.error(err);
     } else {
-      res.send('Thanks for the feedback');
+      res.send({
+        message: 'Thanks for your feedback',
+      });
     }
   });
 });
