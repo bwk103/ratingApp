@@ -6,7 +6,7 @@ describe('AddScore.vue', () => {
     const Constructor = Vue.extend(AddScore)
     const vm = new Constructor().$mount()
     expect(vm.$el.querySelector('.new-score h1').textContent)
-      .toEqual('Help us improve our website.')
+      .toEqual('Help us to improve our website.')
   })
   it('renders the correct subheading', () => {
     const Constructor = Vue.extend(AddScore)

@@ -1,15 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
+import AddScore from '@/components/AddScore'
+import Confirmation from '@/components/Confirmation'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      // name: 'HelloWorld',
-      // component: HelloWorld
+      name: 'AddScore',
+      component: AddScore
+    },
+    {
+      path: '/confirmation',
+      name: 'Confirmation',
+      component: Confirmation
     }
   ]
 })

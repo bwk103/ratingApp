@@ -1,7 +1,7 @@
 <template >
   <div class="new-score">
-    <h1>Help us improve our website.</h1>
-    <h3>To help us to continually improve our service, please tell us how you rated your experience of the FT website.</h3> 
+    <h1>Help us to improve our website.</h1>
+    <h3>To help us to continually improve our service, please tell us how you rated your experience of the FT website.</h3>
     <div class="form">
       <div class="rating-btns">
         <input type="radio" name="rating" v-model="rating" value="1">1
@@ -26,6 +26,7 @@
 </template>
 
 <script type="text/javascript">
+import ScoreService from '@/services/ScoreService'
 
 export default {
   name: 'NewScore',
@@ -41,7 +42,7 @@ export default {
         rating: this.rating,
         comment: this.comment
       })
-      this.$router.push({ name: 'Thanks'})
+      this.$router.push({name: 'Confirmation'})
     }
   }
 }
