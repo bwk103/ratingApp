@@ -17,7 +17,7 @@ app.use('/', routes);
 app.use('/feedback', routes);
 
 var { db: { host, port, name } } = config;
-var connectionString = `mongodb://${host}:${port}/${name}`;
+var connectionString = 'mongodb://' + host + ':' + port + '/' + name;
 
 mongoose.connect(connectionString, {}).then(
   () => { console.log('Connection with database successful.'); },
