@@ -2,11 +2,7 @@
 var app = require('../../app');
 var request = require('supertest');
 var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
 var Score = require('../../models/score');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 beforeAll(() => {
   mongoose.connection.collections['scores'].remove();
@@ -17,14 +13,12 @@ afterAll(() => {
 });
 
 describe('routing tests', () => {
-  // describe('/', () => {
-  //   test('responds with a 200 status code', () => {
-  //     request(app).get('/').then((response) => {
-  //       return expect(response.statusCode).toBe(200);
-  //     });
-  //   });
-  //
-
+  describe('/', () => {
+    test('responds with a 200 status code', async() => {
+      var response = await request(app).get('/');
+      expect(response.statusCode).toBe(200);
+    });
+  });
   describe('/scores', () => {
     describe('successful GET requests', () => {
       beforeEach(() => {
@@ -53,37 +47,25 @@ describe('routing tests', () => {
     });
   });
 
-  describe('/scores/new', () => {
+  describe('/scores', () => {
     describe('successful POST requests', () => {
-      test('respond with a 201 status code', async() => {
+      test('respond with a 302 (redirect) status code', async() => {
         var response = await request(app)
-          .post('/scores/new')
+          .post('/scores')
           .send({ rating: 1, comment: 'Testing' });
-        expect(response.statusCode).toBe(201);
-      });
-      test('return success status', async() => {
-        var response = await request(app)
-          .post('/scores/new')
-          .send({ rating: 10, comment: 'A test' });
-        expect(response.body.status).toBe('Success');
-      });
-      test('return confirmation message', async() => {
-        var response = await request(app)
-          .post('/scores/new')
-          .send({ rating: 5, comment: 'Testing' });
-        expect(response.body.message).toBe('Score saved successfully');
+        expect(response.statusCode).toBe(302);
       });
     });
     describe('unsuccessful POST requests', () => {
       test('respond with a 500 status code', async() => {
         var response = await request(app)
-          .post('/scores/new')
+          .post('/scores')
           .send({});
         expect(response.statusCode).toBe(500);
       });
       test('returns the error object', async() => {
         var response = await request(app)
-          .post('/scores/new')
+          .post('/scores')
           .send({});
         expect(response.errors).not.toBeTruthy;
       });

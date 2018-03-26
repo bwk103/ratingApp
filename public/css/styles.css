@@ -1,11 +1,6 @@
 body {
-  /* margin-top: 60px; */
   background: #FFF1E5;
   font-family: MetricWeb, serif;
-}
-
-.container {
-  margin-top: 30px;
 }
 
 p {
@@ -13,12 +8,16 @@ p {
 }
 
 h2 {
+  color: #33302E;
   padding-top: 50px;
   text-align: center;
-  color: #33302E;
 }
 
-.o-forms.o-forms-wide {
+.container {
+  margin-top: 30px;
+}
+
+.o-forms {
   margin: auto;
 }
 
@@ -35,8 +34,8 @@ input[type=submit] {
 }
 
 footer {
-   position: fixed;
-   bottom:0;
-   left:0;
-   width:100%;
+  bottom:0;
+  left:0;
+  position: fixed;
+  width:100%;
 }

@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   }
 });
 
-router.post('/scores/new', async(req, res) => {
+router.post('/scores', async(req, res) => {
   var score = new Score({ rating: req.body.rating, comment: req.body.comment });
   try {
     await score.save();
