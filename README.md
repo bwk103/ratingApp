@@ -6,6 +6,32 @@ Click [here](https://bk-ft-ratingapp.herokuapp.com/) to demo the application.
 
 My challenge was to produce a website that asks for, and stores, a simple rating score.
 
+## Getting Started
+
+### Prerequisites
+
+The application uses MongoDB in development and test which will need to be installed before the application will run locally.
+
+### Installation
+
+Download the repository from github:
+
+`git clone https://github.com/bwk103/ratingApp.git`
+
+Install the necessary dependencies:
+
+`npm install`
+
+Start a server:
+
+`npm start`
+
+## Tests
+
+To run tests using Jest, execute the following command:
+
+`npm test`
+
 ## Solution
 
 To solve the challenge, I developed a basic Node.js application using Express and MongoDB.  The front end uses a number of components from the [FT's Origami Registry](https://registry.origami.ft.com/components).
