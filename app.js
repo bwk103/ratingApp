@@ -17,9 +17,11 @@ app.use('/', routes);
 app.use('/feedback', routes);
 
 var { db: { host, port, name } } = config;
+
+console.log()
 // var connectionString = 'mongodb:' + host + ':' + port + '/' + name;
 
-mongoose.connect(process.env.DB_STRING, {}).then(
+mongoose.connect(process.env.MONGODB_URI, {}).then(
   () => { console.log('Connection with database successful.'); },
   err => { console.log(err); }
 );
