@@ -9,16 +9,16 @@ describe('Score', () => {
       comment: 'Random comment',
     });
   });
-  test('is not valid if a rating is not provided', () => {
+  test('is not valid if a rating is not provided', async() => {
     score.rating = null;
-    return expect(score.validate()).rejects.not.toBe(null);
+    await expect(score.validate()).rejects.not.toBeNull();
   });
-  test('is not valid if a rating is negative', () => {
+  test('is not valid if a rating is negative', async() => {
     score.rating = -1;
-    return expect(score.validate()).rejects.not.toBe(null);
+    await expect(score.validate()).rejects.not.toBeNull();
   });
-  test('is not valid if a rating is greater than 10', () => {
+  test('is not valid if a rating is greater than 10', async() => {
     score.rating = 15;
-    return expect(score.validate()).rejects.not.toBe(null);
+    await expect(score.validate()).rejects.not.toBeNull();
   });
 });
