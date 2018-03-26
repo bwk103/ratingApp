@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 
 router.post('/scores/new', async(req, res) => {
   var score = new Score({ rating: req.body.rating, comment: req.body.comment });
+  console.log('Does it make it to this point????');
   try {
     await score.save();
     // res.status(201).send({ status: 'Success',

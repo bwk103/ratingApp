@@ -5,7 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var routes = require('./routes/feedback');
 var mongoose = require('mongoose');
-// var config = require('./config');
+var config = require('./config');
 const cors = require('cors');
 
 app.set('view engine', 'ejs');
@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', routes);
 app.use('/feedback', routes);
 
-// var { db: { host, port, name } } = config;
-var connectionString = process.env.DB_STRING;
+var { db: { host, port, name } } = config;
+var connectionString = `mongodb://${host}:${port}/${name}`;
 
 mongoose.connect(connectionString);
 
