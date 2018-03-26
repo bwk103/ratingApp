@@ -69,7 +69,7 @@ font-size: 12px;
 margin: 20px;
 }
 input[type=button] {
-background: #4d7ef7;
+background: #0D7680;
 color: #fff;
 padding: 10px 80px;
 text-transform: uppercase;
