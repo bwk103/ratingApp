@@ -14,8 +14,6 @@ router.post('/scores/new', async(req, res) => {
   var score = new Score({ rating: req.body.rating, comment: req.body.comment });
   try {
     await score.save();
-    // res.status(201).send({ status: 'Success',
-    //   message: 'Score saved successfully'});
     res.redirect('/confirm');
   } catch (error) {
     res.status(500).send(error);

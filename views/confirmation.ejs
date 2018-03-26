@@ -4,10 +4,12 @@
     <% include ./partials/head %>
   </head>
   <body>
-    <img src="/images/brand-ft.svg" alt="">
-    <h2 class="o-typography-product-heading-level-1">Thanks for your feedback.</h2>
-    <p>Click here to see what other people have said about FT.com</p>
-
-    <script src="https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-grid@^4.0.0,o-fonts@^1.4.0" async />
+    <% include ./partials/header %>
+    <div class="container">
+      <h2 class="o-typography-product-heading-level-1">Thanks for your feedback.</h2>
+      <p>Click <a href="">here</a> to see what other people have said about FT.com</p>
+    </div>
+    <% include ./partials/footer %>
+    <script src="https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-grid@^4.0.0,o-fonts@^3.0.0,o-footer@^6.0.8,o-header@^7.4.0" async />
   </body>
 </html>
