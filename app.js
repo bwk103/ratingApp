@@ -19,6 +19,9 @@ app.use('/feedback', routes);
 var { db: { host, port, name } } = config;
 var connectionString = `mongodb://${host}:${port}/${name}`;
 
-mongoose.connect(connectionString);
+mongoose.connect(connectionString, {}).then(
+  () => { console.log('Connection with database successful.'); },
+  err => { console.err(err); }
+);
 
 module.exports = app;
